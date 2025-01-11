@@ -155,10 +155,18 @@
             <h1>TIENDA LA 3-33</h1>
             <p>Tu tienda de confianza 24/7</p>
             <!-- Cuadro de búsqueda -->
-    <div class="search-container">
-        <input type="text" id="search-input" placeholder="Buscar productos..." oninput="filterProducts()">
-        <button onclick="searchProducts()">Buscar</button>
-        </div>
+<div class="search-container">
+    <input type="text" id="search-input" placeholder="Buscar productos..." oninput="filterProducts()">
+    <button onclick="searchProducts()">Buscar</button>
+    
+    <!-- Buscador de categorías -->
+    <select id="category-filter" onchange="filterByCategory()">
+        <option value="all">Todas las categorías</option>
+        <option value="Rehidratantes">Rehidratantes</option>
+        <option value="Gaseosas">Gaseosas</option>
+        <option value="Aguas">Aguas</option>
+    </select>
+</div>
         </header>
 
         <main>
