@@ -399,5 +399,15 @@ ${includeDelivery ? `📍 Dirección: ${address}` : '🏪 Retiro en tienda'}
             renderProducts();
         };
     </script>
+    <footer style="text-align: center; padding: 1rem 0; background: #1a202c; color: #fff; font-size: 0.9rem;">
+    © <span id="current-year"></span> SurtidoMarket – Todos los derechos reservados.<br>
+    La reproducción total o parcial del contenido está estrictamente prohibida sin autorización previa.
+</footer>
+
+<script>
+    // Actualiza automáticamente el año actual
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+</script>
+
 </body>
 </html>
