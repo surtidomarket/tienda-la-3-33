@@ -157,7 +157,14 @@
             <p>Nuestro horario de atención es de<p>
             <p>Lunes a Sábado, de 7:00 AM a 6:00 PM, y los 
             Domingos de 7:00 AM a 1:00 PM<p>
-          
+         
+    <!-- Buscador -->
+    <div class="search-bar">
+    <input type="text" id="search-input" class="search-input" placeholder="Buscar productos...">
+    <button class="search-button" onclick="searchProduct()">Buscar</button>
+</div>
+
+
         </header>
 
         <main>
@@ -430,3 +437,4 @@ ${includeDelivery ? `📍 Dirección: ${address}` : '🏪 Retiro en tienda'}
 
 </body>
 </html>
+
