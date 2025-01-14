@@ -31,6 +31,22 @@
             color: #ffd700;
             margin-bottom: 1rem;
         }
+        .search-container input {
+            width: 60%;
+            padding: 0.5rem;
+            border-radius: 0.25rem;
+            border: none;
+        }
+        .search-container button {
+            padding: 0.5rem 1rem;
+            margin-left: 0.5rem;
+            border: none;
+            border-radius: 0.25rem;
+            background: #ffd700;
+            color: #1a202c;
+            font-weight: bold;
+            cursor: pointer;
+        }
         .category-section {
             margin-bottom: 3rem;
         }
@@ -159,10 +175,10 @@
             Domingos de 7:00 AM a 1:00 PM<p>
          
     <!-- Buscador -->
-    <div class="search-bar">
-    <input type="text" id="search-input" class="search-input" placeholder="Buscar productos...">
-    <button class="search-button" onclick="searchProduct()">Buscar</button>
-</div>
+    <<div class="search-container">
+                <input type="text" id="search-input" placeholder="Buscar productos..." oninput="searchProducts()">
+                <button onclick="searchProducts()">Buscar</button>
+            </div>
 
 
         </header>
@@ -306,6 +322,7 @@
         let cart = [];
         const DELIVERY_COST = 3500;
 
+
         function verifyAge(isAdult) {
             if (isAdult) {
                 document.getElementById('age-verification').style.display = 'none';
@@ -342,6 +359,26 @@
                 container.appendChild(section);
             });
         }
+
+
+
+      function searchProducts() {
+              const query = document.getElementById('search-input').value.toLowerCase();
+              const filteredProducts = products.filter(product => product.name.toLowerCase().includes(query));
+              const container = document.getElementById('products-container');
+              container.innerHTML = filteredProducts.map(product => `
+                  <div class="product-card">
+                                <img src="${product.image}" alt="${product.name}" class="product-image">
+                                <h3 class="product-name">${product.name}</h3>
+                                <p class="product-price">$${product.price.toLocaleString()}</p>
+                                <button onclick="addToCart(${product.id})" class="add-to-cart">
+                                    Agregar al Carrito
+                                </button>  </div>
+            `).join('');
+        }
+        
+        
+
 
         function addToCart(productId) {
             const product = products.find(p => p.id === productId);
@@ -437,4 +474,3 @@ ${includeDelivery ? `📍 Dirección: ${address}` : '🏪 Retiro en tienda'}
 
 </body>
 </html>
-
