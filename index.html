@@ -173,18 +173,213 @@
             <p>Nuestro horario de atención es de<p>
             <p>Lunes a Sábado, de 7:00 AM a 6:00 PM, y los 
             Domingos de 7:00 AM a 1:00 PM<p>
-          
-        <!-- Categorías -->
-        <div class="category-list">
-            <div class="category-item" onclick="filterCategory('Rehidratantes')">Rehidratantes</div>
-            <div class="category-item" onclick="filterCategory('Gaseosas')">Gaseosas</div>
-            <div class="category-item" onclick="filterCategory('Energizantes')">Energizantes</div>
-            <div class="category-item" onclick="filterCategory('Snacks')">Snacks</div>
-            <div class="category-item" onclick="filterCategory('Abarrotes')">Abarrotes</div>
-            <div class="category-item" onclick="filterCategory('Aseo')">Aseo</div>
-            <div class="category-item" onclick="filterCategory('Productos_de_Farmacias')">Productos de Farmacia</div>
-            
+                
+ 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú Desplegable de Productos</title>
+    <style>
+        /* Estilos generales */
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .menu {
+            display: flex;
+            flex-direction: column; /* Alineación vertical */
+            align-items: center; /* Centrar los botones */
+            margin-top: 20px;
+        }
+
+        /* Estilos de los botones */
+        .dropdown {
+            position: relative;
+            width: 100%; /* Hace que los botones ocupen todo el espacio disponible */
+            margin-bottom: 10px; /* Espacio entre cada botón */
+        }
+
+        .dropbtn {
+            background-color: #FFEB3B; /* Color amarillo */
+            border: none;
+            color: black;
+            padding: 10px 15px;
+            font-size: 16px;
+            cursor: pointer;
+            text-align: center;
+            border-radius: 5px;
+            width: 100%; /* Hace que el botón ocupe todo el ancho disponible */
+        }
+
+        .dropbtn:hover {
+            background-color: #FBC02D; /* Cambio de color al pasar el mouse */
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #FFEB3B; /* Color amarillo */
+            min-width: 160px;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            border-radius: 5px;
+            width: 100%;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-content ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .dropdown-content ul li {
+            padding: 5px 10px;
+            color: black;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+
+        /* Ajustes para dispositivos móviles */
+        @media screen and (max-width: 768px) {
+            .dropbtn {
+                font-size: 14px;
+                padding: 8px 12px;
+            }
+
+            .dropdown-content {
+                min-width: 140px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <h2>Menú de Productos</h2>
+
+    <div class="menu">
+        <!-- Categoría: Rehidratantes -->
+        <div class="dropdown">
+            <button class="dropbtn">Rehidratantes</button>
+            <div class="dropdown-content">
+                <ul>
+                    <li>Electrolit Maracuyá 625ml - $8000</li>
+                    <li>Electrolit Limón 625ml - $8000</li>
+                    <li>Electrolit Naranja 625ml - $8000</li>
+                    <li>Bebida Energizante Vive 100 Zero x 380 ml - $2600</li>
+                    <li>Bebida Hidratante Gatorade x 500 ml - $4300</li>
+                    <li>Bebida Energizante Speed Max x 2200 ml - $2500</li>
+                </ul>
+            </div>
         </div>
+
+        <!-- Categoría: Gaseosas -->
+        <div class="dropdown">
+            <button class="dropbtn">Gaseosas</button>
+            <div class="dropdown-content">
+                <ul>
+                    <li>Coca-Cola Original 1.5L - $6010</li>
+                    <li>Coca-Cola Zero 300ml - $3300</li>
+                    <li>Coca-Cola Original 330ml - $3300</li>
+                    <li>Postobón Manzana 400ml - $2600</li>
+                    <li>Postobón Uva 400ml - $2600</li>
+                    <li>Postobón Naranja 400ml - $2600</li>
+                    <li>Postobón Pepsi 400ml - $2600</li>
+                    <li>Postobón surtido x 15 400ml - $36500</li>
+                    <li>Postobón Hipinto 1.5L - $3700</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Categoría: Aguas -->
+        <div class="dropdown">
+            <button class="dropbtn">Aguas</button>
+            <div class="dropdown-content">
+                <ul>
+                    <li>Brisa con gas 600ml - $2000</li>
+                    <li>Cristal con gas 600ml - $2000</li>
+                    <li>Cristal Agua Natural 300ml x24 unidades - $18000</li>
+                    <li>Cristal Agua Natural pequeña - $1000</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Categoría: Cervezas -->
+        <div class="dropdown">
+            <button class="dropbtn">Cervezas</button>
+            <div class="dropdown-content">
+                <ul>
+                    <li>Heineken Botella 330ml - $3500</li>
+                    <li>Club Colombia Botella 330ml - $3500</li>
+                    <li>Coronita Extra x6 (210ml c/u) - $24000</li>
+                    <li>Poker Botella 330ml - $3500</li>
+                    <li>Águila Light Botella 330ml - $3500</li>
+                    <li>Heineken Lata 330ml - $4000</li>
+                    <li>Club Colombia Lata 330ml - $4000</li>
+                    <li>Poker Lata 330ml - $3500</li>
+                    <li>Águila Light Lata 330ml - $3400</li>
+                    <li>Águila Lata 330ml - $3500</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Categoría: Licores -->
+        <div class="dropdown">
+            <button class="dropbtn">Licores</button>
+            <div class="dropdown-content">
+                <ul>
+                    <li>Aguardiente Amarillo 375ml - $28800</li>
+                    <li>Aguardiente Cristal 375ml - $25800</li>
+                    <li>Aguardiente Amarillo 750ml - $54500</li>
+                    <li>Aguardiente Antioqueño 375ml - $28500</li>
+                    <li>Whisky Old Parr 750ml - $160500</li>
+                    <li>Whisky Old Parr 500ml - $115500</li>
+                    <li>Vino Indio Amado 750ml - $13500</li>
+                    <li>Ron Caldas 375ml - $32800</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Categoría: Cigarrillos -->
+        <div class="dropdown">
+            <button class="dropbtn">Cigarrillos</button>
+            <div class="dropdown-content">
+                <ul>
+                    <li>Cigarrillos Rothmans Belmont gris x10 - $5850</li>
+                    <li>Cigarrillos Rothmans Belmont gris x20 - $12500</li>
+                    <li>Cigarrillos MARLBORO Rojo cajetilla (10 und) - $5200</li>
+                    <li>Cigarrillos MARLBORO Rojo cajetilla (20 und) - $10400</li>
+                    <li>Lucky Strike (10 unidades) - $5950</li>
+                    <li>Lucky Strike Black (20 unidades) - $11950</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Categoría: Confitería -->
+        <div class="dropdown">
+            <button class="dropbtn">Confitería</button>
+            <div class="dropdown-content">
+                <ul>
+                    <li>Chiclets Menta x12 chicles - $1690</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</body>
 
 
     <!-- Buscador -->
