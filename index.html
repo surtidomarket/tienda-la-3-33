@@ -679,7 +679,62 @@
                 container.appendChild(section);
             });
         }
+function searchProducts() {
+    const searchTerm = document.getElementById("search-input").value.toLowerCase();
+    const filteredProducts = products.filter(product => 
+        product.name.toLowerCase().includes(searchTerm)
+    );
 
+    displayProducts(filteredProducts);
+}
+
+function displayProducts(productList) {
+    const container = document.getElementById("products-container");
+    container.innerHTML = "";
+
+    if (productList.length === 0) {
+        container.innerHTML = "<p>No se encontraron productos.</p>";
+        return;
+    }
+
+    productList.forEach(product => {
+        const productDiv = document.createElement("div");
+        productDiv.classList.add("product");
+        productDiv.innerHTML = `
+            <img src="${product.image}" alt="${product.name}" width="100">
+            <h3>${product.name}</h3>
+            <p>Precio: $${product.price.toLocaleString()}</p>
+            <button onclick="addToCart(${product.id})" class="add-to-cart">Agregar al Carrito</button>
+        `;
+        container.appendChild(productDiv);
+    });
+}
+
+function renderProducts() {
+    const container = document.getElementById('products-container');
+    container.innerHTML = ""; // Limpiar contenido previo
+    const categories = [...new Set(products.map(p => p.category))];
+    
+    categories.forEach(category => {
+        const categoryProducts = products.filter(p => p.category === category);
+        const section = document.createElement('section');
+        section.className = 'category-section';
+        section.innerHTML = `
+            <h2 class="category-title">${category}</h2>
+            <div class="products-grid">
+                ${categoryProducts.map(product => `
+                    <div class="product-card">
+                        <img src="${product.image}" alt="${product.name}" class="product-image">
+                        <h3 class="product-name">${product.name}</h3>
+                        <p class="product-price">$${product.price.toLocaleString()}</p>
+                        <button onclick="addToCart(${product.id})" class="add-to-cart">Agregar al Carrito</button>
+                    </div>
+                `).join('')}
+            </div>
+        `;
+        container.appendChild(section);
+    });
+}
         function addToCart(productId) {
             const product = products.find(p => p.id === productId);
             if (product) {
